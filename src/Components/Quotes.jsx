@@ -74,6 +74,7 @@ export const Quotes = (props) => {
 						<div className={'author'}> {listAuthors[quoteIndex]}</div>
 						{listQuotes.length > 1 && <div className='switchBtns'>
 							<button className={cn({ 'cursorNone': quoteIndex === 0 })} onClick={changeIndexDown}> &#8592; Previos</button>
+							<div className='page'>{quoteIndex + 1} / {listQuotes.length}</div>
 							<button className={cn({ 'cursorNone': quoteIndex + 1 === listQuotes.length })} onClick={changeIndexUp}> Next &#8594;</button>
 						</div>}
 					</div>
