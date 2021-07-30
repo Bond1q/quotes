@@ -33,7 +33,15 @@ export const Quotes = (props) => {
 		setIsFetching(true)
 		if (author) {
 			const r = await requestAthorQuotes(author)
-			setQuotes(r.data.data)
+			if (r.data.data.length === 0) {
+				setQuotes([
+					{ "quoteText": "Sorry, we can't find an author with with this name", }
+				])
+
+			} else {
+				setQuotes(r.data.data)
+			}
+
 			setIsFetching(false)
 		} else {
 			getRandomQuote()
